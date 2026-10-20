@@ -19,6 +19,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    padding: 20px;
     font-family: Arial, sans-serif;
 }
 
@@ -28,7 +29,8 @@ body {
     max-width: 900px;
     text-align: center;
     padding: 40px;
-    border-radius: 5px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(43, 222, 253, 0.1);
 }
 
 h1 {
@@ -37,15 +39,22 @@ h1 {
     margin-bottom: 25px;
 }
 
+.tela-inicial p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
 .caixa-perguntas {
     font-size: 18px;
-    line-height: 1.5;
+    line-height: 1.6;
     margin-bottom: 25px;
 }
 
 .caixa-alternativas {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 10px;
     margin-top: 20px;
 }
@@ -53,21 +62,81 @@ h1 {
 button {
     background-color: var(--cor-secundaria);
     color: var(--cor-texto);
-    border: none;
+    border: 2px solid transparent;
     border-radius: 15px;
     padding: 15px 20px;
-    transition: background-color 0.3s;
+    transition: 0.3s;
     cursor: pointer;
     font-size: 16px;
+    font-family: Arial, sans-serif;
 }
 
 button:hover {
     background-color: var(--cor-destaque);
-    color: var(--cor-secundaria);
+    color: var(--cor-principal);
+    transform: scale(1.03);
+}
+
+.iniciar-btn,
+.novamente-btn {
+    background-color: var(--cor-destaque);
+    color: var(--cor-principal);
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.iniciar-btn:hover,
+.novamente-btn:hover {
+    background-color: var(--cor-texto);
+    color: var(--cor-principal);
+}
+
+.caixa-perguntas,
+.caixa-alternativas,
+.caixa-resultado {
+    display: none;
+}
+
+.caixa-perguntas.mostrar,
+.caixa-resultado.mostrar {
+    display: block;
+}
+
+.caixa-alternativas.mostrar {
+    display: flex;
 }
 
 .caixa-resultado {
     margin-top: 30px;
     font-size: 18px;
-    line-height: 1.5;
+    line-height: 1.7;
+}
+
+.texto-resultado {
+    white-space: pre-line;
+}
+
+@media (max-width: 600px) {
+    .caixa-principal {
+        width: 100%;
+        padding: 25px 18px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    .tela-inicial p,
+    .caixa-perguntas,
+    .caixa-resultado {
+        font-size: 16px;
+    }
+
+    .caixa-alternativas {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
 }
